@@ -1,0 +1,126 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px #e65011;
+}
+
+header {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.teams,
+.details,
+.commentary {
+    align-self: center;
+    width: 100%;
+    flex: 1;
+    background-color: #fff;
+    color: black;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 2px;
+}
+
+.teams {
+    padding-top:40px ;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teams .team {
+    display: flex;
+    align-items: center;
+}
+
+.teams .team img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.vs {
+    font-size: 1.5em;
+    margin: 0 20px;
+}
+
+.details,
+.commentary {
+    text-align: left;
+}
+
+#commentary {
+    /* Style for commentary text */
+    height: 200px;
+    overflow-y: scroll;
+}
+
+#commentary::-webkit-scrollbar {
+    width: 0px;
+}
+
+/*track*/
+#commentary::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/*thumb*/
+#commentary::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 2px solid #e65011;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.team-name {
+    font-weight: bold;
+}
+
+.score {
+    margin-left: 10px;
+}
+
+.result {
+    text-align: center;
+    color: gray;
+    font-size: 14px;
+    margin-top: 5px;
+}

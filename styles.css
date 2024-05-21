@@ -1,0 +1,114 @@
+body {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    background-color: #0C1525;
+    color: #fff;
+    padding-top: 20px;
+}
+
+#sidebar a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+#sidebar a:hover {
+    background-color: #e65011;
+}
+
+#content {
+    margin-left:250px;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.notification-category {
+    margin-bottom: 20px;
+}
+
+.notification-category h2 {
+    margin-bottom: 10px;
+}
+
+.notification-category p {
+    margin-bottom: 15px;
+}
+
+/* Add your custom CSS styles here */
+#settings {
+    padding: 20px;
+}
+
+#settings h2 {
+    margin-top: 20px;
+}
+
+#settings label {
+    display: block;
+    margin-top: 10px;
+}
+
+#settings select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.card-header-bg {
+    background-color: #e65011;
+}
+
+.card-header-color {
+    color: #fff;
+}
+
+.match-navbar {
+    background-color: #e65011;
+    color: #fff;
+    margin: 15px;
+}
+.nav-link:active {
+    background-color: #e65011; /* Change to your desired color */
+    color: white; /* Change text color if needed */
+}
+.btn-manual{
+    background-color: #e65011;
+    color: #fff;
+}
+.player-card {
+    margin-bottom: 20px;
+}
+
+
+.performance-table td {
+    text-align: center;
+    background-color: #0C1525;
+    color: #fff;
+}
+.thead{
+    text-align: center;
+    background-color: #e65011;
+    color: #fff;
+}
+.select-bar{
+    border: 1px solid #e65011;
+    min-width: 250px;
+    max-width: 250px;
+}

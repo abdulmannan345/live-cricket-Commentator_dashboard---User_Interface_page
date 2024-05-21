@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commentator Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="sidebar" class="d-flex flex-column">
+        <img class="LoginForm_img__YWvay" src="assets/CommentatorCounter_logo_2.png" alt="CommentatorCounter">
+        <br><br>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('voiceRecognition')">Voice Recognition</a>
+        <a href="#" onclick="showSection('matches')">Matches</a>
+        <a href="#" onclick="showSection('analytics')">Analytics</a>
+        <a href="#" onclick="showSection('notifications')">Notifications</a>
+        <a href="#" onclick="showSection('settings')">Settings</a>
+    </div>
+    <div id="content">
+        <div id="home" class="content-section active">
+            <h1>Home</h1>
+            <div class="card mb-3">
+                <div class="card-header card-header-bg card-header-color">
+                    Overview
+                </div>
+                <div class="card-body">
+                    <p>Current Match Score: Team A 150/3 (20 overs)</p>
+                    <p>Live Match Status: Ongoing</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header card-header-bg card-header-color">
+                    Recent Matches
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Match 1: Team A vs Team B (Result: Team A won by 5 runs)</li>
+                        <li>Match 2: Team C vs Team D (Result: Team D won by 3 wickets)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header card-header-bg card-header-color">
+                    Upcoming Matches
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Match 3: Team E vs Team F (Date: 25 May 2024)</li>
+                        <li>Match 4: Team G vs Team H (Date: 26 May 2024)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="voiceRecognition" class="content-section">
+            <h1>Voice Recognition</h1>
+            <div class="card mb-3">
+                <div class="card-header card-header-bg card-header-color">
+                    Live Transcription
+                </div>
+                <div class="card-body">
+                    <p id="transcription">Waiting for transcription...</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header card-header-bg card-header-color">
+                    Accuracy Monitoring
+                </div>
+                <div class="card-body">
+                    <p>Accuracy: <span id="accuracy">0%</span></p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header card-header-bg card-header-color">
+                    Error Logs
+                </div>
+                <div class="card-body">
+                    <ul id="errorLogs">
+                        <li>No errors logged.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="matches" class="content-section">
+            <h1>Matches</h1>
+            <div class="nav nav-pills" id="matches-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link match-navbar" id="add-match-tab" data-toggle="pill" href="#add-match" role="tab" aria-controls="add-match" aria-selected="true">Add Match</a>
+                <a class="nav-link match-navbar" id="edit-match-tab" data-toggle="pill" href="#edit-match" role="tab" aria-controls="edit-match" aria-selected="false">Edit Match</a>
+                <a class="nav-link match-navbar" id="live-matches-tab" data-toggle="pill" href="#live-matches" role="tab" aria-controls="live-matches" aria-selected="false">Live Matches</a>
+                <a class="nav-link match-navbar" id="past-matches-tab" data-toggle="pill" href="#past-matches" role="tab" aria-controls="past-matches" aria-selected="false">Past Matches</a>
+            </div>
+            <div class="tab-content" id="matches-tabContent">
+                <div class="tab-pane fade show active" id="add-match" role="tabpanel" aria-labelledby="add-match-tab">
+                    <h2>Add Match</h2>
+                    <form id="add-match-form">
+                        <div class="form-group">
+                            <label for="teamA">Team A</label>
+                            <input type="text" class="form-control" id="teamA" placeholder="Enter Team A">
+                        </div>
+                        <div class="form-group">
+                            <label for="teamB">Team B</label>
+                            <input type="text" class="form-control" id="teamB" placeholder="Enter Team B">
+                        </div>
+                        <div class="form-group">
+                            <label for="matchDate">Match Date</label>
+                            <input type="date" class="form-control" id="matchDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="venue">Venue</label>
+                            <input type="text" class="form-control" id="venue" placeholder="Enter Venue">
+                        </div>
+                        <button type="submit" class="btn btn-manual">Add Match</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="edit-match" role="tabpanel" aria-labelledby="edit-match-tab">
+                    <h2>Edit Match</h2>
+                    <!-- Edit match form or functionality will go here -->
+                    <p>Edit existing match details.</p>
+                </div>
+                <div class="tab-pane fade" id="live-matches" role="tabpanel" aria-labelledby="live-matches-tab">
+                    <h2>Live Matches</h2>
+                    <!-- Live matches content will go here -->
+                    <p>List of live matches will be displayed here.</p>
+                </div>
+                <div class="tab-pane fade" id="past-matches" role="tabpanel" aria-labelledby="past-matches-tab">
+                    <h2>Past Matches</h2>
+                    <!-- Past matches content will go here -->
+                    <p>List of past matches will be displayed here.</p>
+                </div>
+            </div>
+        </div>
+        <div id="analytics" class="content-section">
+            <h1>Analytics</h1>
+            <div id="performanceMetrics">
+                <div class="container">
+                    <h1 class="text-center mb-4">Cricket Performance Metrics</h1>
+                    
+                    <!-- Player Card -->
+                    <div class="card player-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Player Name</h5>
+                            <p class="card-text">Team: <span class="font-weight-bold">Team Name</span></p>
+                            <p class="card-text">Role: <span class="font-weight-bold">Player Role</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Metrics Table -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped performance-table">
+                            <thead class="thead">
+                                <tr>
+                                    <th>Match</th>
+                                    <th>Runs</th>
+                                    <th>Wickets</th>
+                                    <th>Catches</th>
+                                    <th>Strike Rate</th>
+                                    <th>Economy Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Match 1</td>
+                                    <td>45</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>130.25</td>
+                                    <td>7.25</td>
+                                </tr>
+                                <tr>
+                                    <td>Match 2</td>
+                                    <td>30</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>120.00</td>
+                                    <td>6.50</td>
+                                </tr>
+                                <tr>
+                                    <td>Match 3</td>
+                                    <td>50</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>150.00</td>
+                                    <td>5.75</td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="historicalData">
+                <div class="container mt-5">
+                    <h1 class="text-center mb-4">Historical Cricket Data</h1>
+                    <div class="card mb-4">
+                      <div class="card-header" style="background-color: #e65011; color: #fff;">
+                        <h2>Top Run Scorers</h2>
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-striped" style="background-color: #0C1525; color: #fff;">
+                          <thead>
+                            <tr>
+                              <th>Player</th>
+                              <th>Country</th>
+                              <th>Runs</th>
+                              <th>Matches</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Sachin Tendulkar</td>
+                              <td>India</td>
+                              <td>15,921</td>
+                              <td>200</td>
+                            </tr>
+                            <tr>
+                              <td>Ricky Ponting</td>
+                              <td>Australia</td>
+                              <td>13,378</td>
+                              <td>168</td>
+                            </tr>
+                            <tr>
+                              <td>Jacques Kallis</td>
+                              <td>South Africa</td>
+                              <td>13,289</td>
+                              <td>166</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                
+                    <div class="card mb-4">
+                      <div class="card-header" style="background-color: #e65011; color: #fff;">
+                        <h2>Top Wicket Takers</h2>
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-striped" style="background-color: #0C1525; color: #fff;">
+                          <thead>
+                            <tr>
+                              <th>Player</th>
+                              <th>Country</th>
+                              <th>Wickets</th>
+                              <th>Matches</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Muttiah Muralitharan</td>
+                              <td>Sri Lanka</td>
+                              <td>800</td>
+                              <td>133</td>
+                            </tr>
+                            <tr>
+                              <td>Shane Warne</td>
+                              <td>Australia</td>
+                              <td>708</td>
+                              <td>145</td>
+                            </tr>
+                            <tr>
+                              <td>Anil Kumble</td>
+                              <td>India</td>
+                              <td>619</td>
+                              <td>132</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                
+                    <div class="card mb-4">
+                      <div class="card-header" style="background-color: #e65011; color: #fff;">
+                        <h2>Famous Cricket Grounds</h2>
+                      </div>
+                      <div class="card-body">
+                        <ul class="list-group" >
+                          <li class="list-group-item" style="background-color: #0C1525; color: #fff; border: 1px solid #fff;">
+                            <h5>Lord's Cricket Ground</h5>
+                            <p>Location: London, England</p>
+                            <p>Established: 1814</p>
+                          </li>
+                          <li class="list-group-item" style="background-color: #0C1525; color: #fff; border: 1px solid #fff;">
+                            <h5>Melbourne Cricket Ground</h5>
+                            <p>Location: Melbourne, Australia</p>
+                            <p>Established: 1853</p>
+                          </li>
+                          <li class="list-group-item" style="background-color: #0C1525; color: #fff; border: 1px solid #fff;">
+                            <h5>Eden Gardens</h5>
+                            <p>Location: Kolkata, India</p>
+                            <p>Established: 1864</p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>                
+            </div>
+            <button class="btn btn-manual" onclick="exportData()">Export Data</button>
+        </div>
+        <div id="notifications" class="content-section" >
+            <h1>Notifications</h1>
+            <div class="notification-category">
+                <h2>Custom Alerts</h2>
+                <p>Set up custom alerts for specific events.</p>
+                <button class="btn btn-manual" onclick="showSubsection('customAlerts')">View Custom Alerts</button>
+                <div id="customAlerts" style="display:none;">
+                    <!-- Custom alerts content goes here -->
+                </div>
+            </div>
+            <div class="notification-category">
+                <h2>System Notifications</h2>
+                <p>Get alerts for system errors or updates.</p>
+                <button class="btn btn-manual" onclick="showSubsection('systemNotifications')">View System Notifications</button>
+                <div id="systemNotifications" style="display:none;">
+                    <!-- System notifications content goes here -->
+                </div>
+            </div>
+            <div class="notification-category">
+                <h2>Settings</h2>
+                <p>Configure notification preferences.</p>
+                <button class="btn btn-manual" onclick="showSubsection('notificationSettings')">View Settings</button>
+                <div id="notificationSettings" style="display:none;">
+                    <!-- Notification settings content goes here -->
+                </div>
+            </div>
+        </div>
+        <div id="settings" class="content-section">
+            <h1>Settings</h1>
+            <div id="systemConfiguration">
+                <h2>System Configuration</h2>
+                <!-- System configuration options -->
+                <label for="voiceRecognition">Voice Recognition:</label>
+                <select class="select-bar" id="voiceRecognition">
+                    <option value="enabled">Enabled</option>
+                    <option value="disabled">Disabled</option>
+                </select>
+                <!-- More configuration options can be added here -->
+            </div>
+            <div id="preferences">
+                <h2>Preferences</h2>
+                <!-- User preferences options -->
+                <label for="theme">Theme:</label>
+                <select class="select-bar" id="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <!-- More preferences options can be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
